@@ -1,0 +1,31 @@
+subprojects {
+    afterEvaluate {
+        loom {
+            runs {
+                configureEach {
+                    it.ideConfigGenerated = true
+                }
+            }
+        }
+    }
+}
+
+tasks.register("generateVcsData") {
+    StringBuilder data = new StringBuilder("""
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />""".trim()
+    )
+
+    file("gradle_projects.txt").eachLine {
+        data.append("\n    <mapping directory=\"\$PROJECT_DIR\$/$it\" vcs=\"Git\" />")
+    }
+
+    data.append("""
+  </component>
+</project>
+""")
+
+    file(".idea/vcs.xml").setText(data.toString())
+}
