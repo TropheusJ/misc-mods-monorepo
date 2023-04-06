@@ -13,9 +13,6 @@
 [submodule "quilt-template-mod"]
 	path = quilt-template-mod
 	url = https://github.com/TropheusJ/quilt-template-mod
-[submodule "ender-christmas"]
-	path = ender-christmas
-	url = https://github.com/TropheusJ/Ender-Christmas
 [submodule "bing-bing-wahoo"]
 	path = bing-bing-wahoo
 	url = https://github.com/Ignoramuses/bing-bing-wahoo
